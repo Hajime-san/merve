@@ -148,6 +148,8 @@ jobs:
             toolchain: stable
           - os: windows-latest
             toolchain: stable
+          - os: windows-11-arm
+            toolchain: stable
 
     name: Rust ${{ matrix.toolchain }} / ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
