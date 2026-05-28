@@ -298,8 +298,12 @@ fn main() {
                         );
                     }
                 }
-            } else if compiler.is_like_clang() && cfg!(feature = "libcpp") {
-                build.cpp_set_stdlib("c++");
+            } else {
+                if compiler.is_like_clang() && cfg!(feature = "libcpp") {
+                    build.cpp_set_stdlib("c++");
+                } else {
+                    build.cpp_link_stdlib(None);
+                }
             }
         }
     }
